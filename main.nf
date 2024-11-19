@@ -38,6 +38,7 @@ workflow REGISTER_AFFINE_MASK {
 workflow {
 
     main:
+
     //
     // SUBWORKFLOW: Run initialisation tasks
     //

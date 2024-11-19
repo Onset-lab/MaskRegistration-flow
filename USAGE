@@ -1,13 +1,8 @@
-MaskRegistration-flow pipeline
-==============================
-
-Run MaskRegistration-flow pipeline
-
-USAGE
+\033[0;33m USAGE \033[0m
 
 nextflow run main.nf [OPTIONAL_ARGUMENTS] (--input)
 
-DESCRIPTION
+\033[0;33m DESCRIPTION \033[0m
 
     --input=/path/to/[root]             Root folder containing multiple subjects
 

@@ -42,6 +42,14 @@ workflow PIPELINE_INITIALISATION {
 
     ch_versions = Channel.empty()
 
+    if (params.help) {
+        usage = file("$baseDir/USAGE")
+        engine = new groovy.text.SimpleTemplateEngine()
+        template = engine.createTemplate(usage.text).make()
+        print template.toString()
+        exit 0
+    }
+
     masks_channel = Channel.fromPath("$input/**/masks/*.nii.gz")
                     .map{ch1 ->
                         def fmeta = [:]
