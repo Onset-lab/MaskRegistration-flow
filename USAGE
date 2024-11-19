@@ -1,0 +1,26 @@
+MaskRegistration-flow pipeline
+==============================
+
+Run MaskRegistration-flow pipeline
+
+USAGE
+
+nextflow run main.nf [OPTIONAL_ARGUMENTS] (--input)
+
+DESCRIPTION
+
+    --input=/path/to/[root]             Root folder containing multiple subjects
+
+                                        [root]
+                                        ├── S1
+                                        │   ├── masks
+                                        │   │   └── *.nii.gz
+                                        │   ├── *reference.nii.gz
+                                        │   └── *affine.mat
+                                        └── S2
+                                            ├── masks
+                                            │   └── *.nii.gz
+                                            ├── *reference.nii.gz
+                                            └── *affine.mat
+
+Files should be compressed Nifti files (.nii.gz)

@@ -1,0 +1,48 @@
+name: "register_mask"
+description: |
+    Subworkflow to register masks using ANTs ApplyTransforms.
+
+    ---------  Steps  --------------------
+    1. Combine input channels for masks, reference, and affine transformations.
+    2. Apply transformations to the masks using ANTs ApplyTransforms.
+    3. Emit the warped masks and software versions.
+keywords:
+    - Registration
+    - Masks
+    - ANTs
+input:
+    - masks:
+            type: file
+            description: |
+                The input channel containing the masks to be registered.
+                Structure: [ val(meta), path(mask) ]
+            pattern: "*.{nii,nii.gz}"
+    - ref:
+            type: file
+            description: |
+                The input channel containing the reference image.
+                Structure: [ val(meta), path(ref) ]
+            pattern: "*.{nii,nii.gz}"
+    - affine:
+            type: file
+            description: |
+                The input channel containing the affine transformations.
+                Structure: [ val(meta), path(affine) ]
+            pattern: "*.{txt,h5}"
+output:
+    - mask_warped:
+            type: file
+            description: |
+                Channel containing the warped masks.
+                Structure: [ val(meta), path(mask_warped) ]
+            pattern: "*.{nii,nii.gz}"
+    - versions:
+            type: file
+            description: |
+                File containing software versions.
+                Structure: [ path(versions.yml) ]
+            pattern: "versions.yml"
+authors:
+    - "@GuillaumeTh"
+maintainers:
+    - "@GuillaumeTh"
