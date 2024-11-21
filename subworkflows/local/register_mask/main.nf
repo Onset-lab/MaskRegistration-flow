@@ -12,7 +12,7 @@ workflow REGISTER_MASK {
     ch_versions = Channel.empty()
 
     REGISTRATION_ANTSAPPLYTRANSFORMS ( 
-        ch_masks.combine(ch_ref.first(), by: 0).combine(ch_affine.first(), by: 0),
+        ch_masks.combine(ch_ref, by: 0).combine(ch_affine, by: 0),
     )
     ch_versions = ch_versions.mix(REGISTRATION_ANTSAPPLYTRANSFORMS.out.versions.first())
 
