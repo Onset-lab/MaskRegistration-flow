@@ -10,7 +10,7 @@ process REGISTRATION_ANTSAPPLYTRANSFORMS {
     tuple val(meta), path(image), path(reference), path(transform)
 
     output:
-    tuple val(meta), path("*__warped.nii.gz")   , emit: warped_image
+    tuple val(meta), path("*_warped.nii.gz")   , emit: warped_image
     path "versions.yml"                         , emit: versions
 
     when:
@@ -31,11 +31,12 @@ process REGISTRATION_ANTSAPPLYTRANSFORMS {
     export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=$task.cpus
     export OMP_NUM_THREADS=1
     export OPENBLAS_NUM_THREADS=1
+    export suffix=\$(basename ${image} .nii.gz)
 
     antsApplyTransforms $dimensionality\
                         -i $image\
                         -r $reference\
-                        -o ${prefix}__${suffix}.nii.gz\
+                        -o ${prefix}__\${suffix}_warped.nii.gz\
                         $interpolation\
                         -t $transform\
 

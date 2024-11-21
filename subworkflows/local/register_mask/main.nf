@@ -1,4 +1,4 @@
-include { REGISTRATION_ANTSAPPLYTRANSFORMS } from '../../../modules/nf-neuro/registration/antsapplytransforms/main'
+include { REGISTRATION_ANTSAPPLYTRANSFORMS } from '../../../modules/local/registration/antsapplytransforms/main'
 
 workflow REGISTER_MASK {
 
